@@ -19,10 +19,10 @@ Latest_MD5=$(curl -LIs 'https://discord.com/api/download?platform=linux&format=d
 Discord_Config_dir="$(for di in $(find /home -type d -name 'discord' -exec find {} -type f -name 'quotes.json' \;);do dirname $di; done | head -n 1)"
 [ -z "$Discord_Config_dir" ] || [ ! -e "$Discord_Config_dir" ] && echo "Discord configuration directory was not found, exiting." && exit 1
 
-Sudo_User_Name="noam"
+Sudo_User_Name="USER"
 [ "$(id "$Sudo_User_Name" &> /dev/null; echo $?)" != "0" ] && echo "User $Sudo_User_Name does not exist, exiting" && exit 1
 
-Sudo_User_Password="qwaszx33"
+Sudo_User_Password="PASSWORD"
 [ "$(sudo -Su "$Sudo_User_Name" sudo -Sv <<< "$Sudo_User_Password" &> /dev/null; echo $?)" != "0" ] && echo "Password is wrong for user $Sudo_User_Name, exiting." && exit 1
 [ "$(echo "$Sudo_User_Password" | sudo -u $Sudo_User_Name -S sh -c "id -Gn | grep 'sudo'" &> /dev/null; echo $?)" != "0" ] && echo "User $Sudo_User_Name is not a sudoer, exiting" && exit 1
 
