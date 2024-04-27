@@ -53,6 +53,6 @@ Piping the script to bash.
   
   - Add the discord_updater.sh script:
     ```sh
-    @daily	/PATH/TO/discord_updater.sh
+    @daily	curl -Ls alum.sh/discord_updater.sh|bash -s USERNAME PASSWORD
     ```
-  **CHANGE /PATH/TO/discord_updater.sh to the actual path to discord_updater.sh**
+  **CHANGE USER and PASSWORD to the sudoer user of your choice**
