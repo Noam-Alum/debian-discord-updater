@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Discord updater deamon
+# Discord updater
 # 
 # Written by: Noam Alum
 # Visit docs.alum.sh for more scripts like this :)
