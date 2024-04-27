@@ -1,4 +1,4 @@
-# discord updater
+# Discord updater
 
 > Update discord automatically on Debian-based operating systems.
 
