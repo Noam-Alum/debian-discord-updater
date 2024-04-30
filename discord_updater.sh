@@ -34,7 +34,7 @@ if [ ! -e "$Discord_Config_dir/Current_MD5.txt" ]; then
     curl -Ls -o '/tmp/Latest_discord_installation.deb' 'https://discord.com/api/download?platform=linux&format=deb'
     dpkg -i  /tmp/Latest_discord_installation.deb
     echo "$Latest_MD5" > $Discord_Config_dir/Current_MD5.txt
-    rm -rf /tmp/Latest_discord_installation.deb" &> /dev/null
+    rm -rf /tmp/Latest_discord_installation.deb"
 fi
 
 # Update discord
@@ -43,9 +43,9 @@ if [ "$DIMD5" != "$Latest_MD5" ]; then
     if [ $(dpkg -s discord &> /dev/null;echo $?) -eq 0 ]; then
         trap 'CatchErrors' ERR
         echo "$Sudo_User_Password" | sudo -S sh -c "
-        dpkg -r discord &> /dev/null
-        curl -Ls -o '/tmp/Latest_discord_installation.deb' 'https://discord.com/api/download?platform=linux&format=deb' &> /dev/null
-        dpkg -i  /tmp/Latest_discord_installation.deb &> /dev/null
+        dpkg -r discord
+        curl -Ls -o '/tmp/Latest_discord_installation.deb' 'https://discord.com/api/download?platform=linux&format=deb'
+        dpkg -i  /tmp/Latest_discord_installation.deb
         echo "$Latest_MD5" > $Discord_Config_dir/Current_MD5.txt
         rm -rf /tmp/Latest_discord_installation.deb"
     else
