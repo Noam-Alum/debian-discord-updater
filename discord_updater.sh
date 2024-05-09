@@ -5,6 +5,9 @@
 # Written by: Noam Alum
 # Visit docs.alum.sh for more scripts like this :)
 
+# wait
+sleep 30
+
 # Trap errors
 function CatchErrors {
     local ExitCode=$?
