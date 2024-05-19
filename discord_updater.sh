@@ -37,7 +37,8 @@ if [ ! -e "$Discord_Config_dir/Current_MD5.txt" ]; then
     curl -Ls -o '/tmp/Latest_discord_installation.deb' 'https://discord.com/api/download?platform=linux&format=deb'
     dpkg -i  /tmp/Latest_discord_installation.deb
     echo "$Latest_MD5" > $Discord_Config_dir/Current_MD5.txt
-    rm -rf /tmp/Latest_discord_installation.deb"
+    rm -rf /tmp/Latest_discord_installation.deb" &> /dev/null
+	echo "`date` - updated discord ($DIMD5 -> $Latest_MD5)"
 fi
 
 # Update discord
@@ -50,7 +51,8 @@ if [ "$DIMD5" != "$Latest_MD5" ]; then
         curl -Ls -o '/tmp/Latest_discord_installation.deb' 'https://discord.com/api/download?platform=linux&format=deb'
         dpkg -i  /tmp/Latest_discord_installation.deb
         echo "$Latest_MD5" > $Discord_Config_dir/Current_MD5.txt
-        rm -rf /tmp/Latest_discord_installation.deb"
+        rm -rf /tmp/Latest_discord_installation.deb" &> /dev/null
+	    echo "`date` - updated discord ($DIMD5 -> $Latest_MD5)"
     else
         echo "Couldn't find discord installation using dpkg."
     fi
